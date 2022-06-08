@@ -19,6 +19,7 @@ public class GetProvidersUseCase {
     }
 
     public Flux<ProviderDTO> getAllProviders(){
+        //return repository.findAll().map(mapper::toProviderDTO);
         return repository.findAll().map(provider ->mapper.toProviderDTO(provider));
     }
 }
