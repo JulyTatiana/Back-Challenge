@@ -16,7 +16,7 @@ public class Provider {
     private String providerName;
     @NotBlank(message = "Provider id is empty")
     private String providerIdentification;
-    @NotBlank(message = "Description is empty")
-    private String providerDescription;
+    @NotBlank(message = "Address is empty")
+    private String providerAddress;
 
 }
