@@ -3,10 +3,12 @@ package com.sofka.demo.usecases;
 import com.sofka.demo.DTO.ProviderDTO;
 import com.sofka.demo.mapper.ProviderMapper;
 import com.sofka.demo.repository.IProviderRepository;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 import java.awt.*;
 
+@Service
 public class CreateProviderUseCase {
 
     private final IProviderRepository repository;
