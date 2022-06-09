@@ -12,7 +12,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class GetProvidersRoute {
 
     @Bean
-    //Bean control inversion instead of instantiating myself it does it for ourselves
+    //Bean control inversion instead "of instantiating myself", it does it for ourselves
 
     public RouterFunction<ServerResponse> allProviders(GetProvidersUseCase){
 
