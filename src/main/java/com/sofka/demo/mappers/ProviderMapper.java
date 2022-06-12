@@ -1,6 +1,6 @@
-package com.sofka.demo.mapper;
+package com.sofka.demo.mappers;
 
-import com.sofka.demo.DTO.ProviderDTO;
+import com.sofka.demo.dtos.DTOprovider;
 import com.sofka.demo.collections.Provider;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -17,11 +17,11 @@ public class ProviderMapper {
         this.mapper = mapper;
     }
 
-    public ProviderDTO toProviderDTO(Provider provider){
-        return mapper.map(provider, ProviderDTO.class);
+    public DTOprovider toProviderDTO(Provider provider){
+        return mapper.map(provider, DTOprovider.class);
     }
 
-    public Provider toProvider(ProviderDTO providerDTO){
-        return mapper.map(providerDTO, Provider.class);
+    public Provider toProvider(DTOprovider DTOprovider){
+        return mapper.map(DTOprovider, Provider.class);
     }
 }

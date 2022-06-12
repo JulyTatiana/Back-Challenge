@@ -1,10 +1,9 @@
 package com.sofka.demo.routes;
 
-import com.sofka.demo.usecases.DeleteProviderUseCase;
+import com.sofka.demo.useCases.DeleteProviderUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 

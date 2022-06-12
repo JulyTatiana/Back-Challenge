@@ -1,7 +1,7 @@
 package com.sofka.demo.routes;
 
-import com.sofka.demo.DTO.ProviderDTO;
-import com.sofka.demo.usecases.CreateProviderUseCase;
+import com.sofka.demo.dtos.DTOprovider;
+import com.sofka.demo.useCases.CreateProviderUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class CreateProviderRoute {
     @Bean
     public RouterFunction<ServerResponse> create(CreateProviderUseCase createProviderUseCase){
         return route(POST("/create/provider").and(accept(MediaType.APPLICATION_JSON)),
-                request -> request.bodyToMono(ProviderDTO.class)
+                request -> request.bodyToMono(DTOprovider.class)
                         .flatMap(providerDTO -> createProviderUseCase.createProvider(providerDTO))
                         .flatMap(providerDTO -> ServerResponse.status(HttpStatus.CREATED)
                                 .contentType(MediaType.APPLICATION_JSON)
