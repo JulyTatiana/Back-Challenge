@@ -23,5 +23,5 @@ public class Bill {
     @NotBlank(message = "Paid is empty")
     private Integer totalPaid;
     @NotBlank(message = "Product is empty")
-    private List<String> productsId;
+    private List<String> productId;
 }

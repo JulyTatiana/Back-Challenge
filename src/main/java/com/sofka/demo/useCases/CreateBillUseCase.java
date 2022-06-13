@@ -34,9 +34,9 @@ public class CreateBillUseCase {
                 .switchIfEmpty(Mono.error(()-> new Exception("There are missing attributes")));
     }
 
-    public Mono<DTObill> createBill(DTObill dtObill){
-        dtObill.setDate(LocalDateTime.now(ZoneId.of("America/Bogota")).toString());
-        return validateBill(dtObill)
+    public Mono<DTObill> createBill(DTObill dTObill){
+        dTObill.setDate(LocalDateTime.now(ZoneId.of("America/Bogota")).toString());
+        return validateBill(dTObill)
                 .flatMap(billDTO1 -> repository.save(mapper.toBill(billDTO1)))
                 .map(bill -> mapper.toBillDTO(bill));
     }

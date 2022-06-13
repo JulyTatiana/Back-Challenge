@@ -20,8 +20,8 @@ public class BillMapper {
         return mapper.map(bill, DTObill.class);
     }
 
-    public Bill toBill(DTObill billDTO){
-        return mapper.map(billDTO, Bill.class);
+    public Bill toBill(DTObill dTObill){
+        return mapper.map(dTObill, Bill.class);
     }
 
 

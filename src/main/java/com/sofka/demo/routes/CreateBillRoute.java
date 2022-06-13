@@ -19,10 +19,10 @@ public class CreateBillRoute {
     public RouterFunction<ServerResponse> createOneBill(CreateBillUseCase createBillUseCase){
         return route(POST("/create/bill").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(DTObill.class)
-                        .flatMap(billDTO -> createBillUseCase.createBill(billDTO))
-                        .flatMap(billDTO -> ServerResponse.status(HttpStatus.CREATED)
+                        .flatMap(dTObill -> createBillUseCase.createBill(dTObill))
+                        .flatMap(dTObill -> ServerResponse.status(HttpStatus.CREATED)
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .bodyValue(billDTO))
+                                .bodyValue(dTObill))
                         .onErrorResume(throwable -> ServerResponse.badRequest().build()));
     }
 }
