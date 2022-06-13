@@ -14,7 +14,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 
 @Configuration
-public class GetProvidersRoute {
+public class GetAllProvidersRoute {
 
     @Bean
     //Bean control inversion instead "of instantiating ourselves", it does it for ourselves
