@@ -1,13 +1,8 @@
 package com.sofka.demo.dtos;
 
-import com.sofka.demo.collections.Product;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
