@@ -18,6 +18,6 @@ public class DTObill {
     @NotBlank(message = "Paid is empty")
     private Integer totalPaid;
     @NotBlank(message = "Products is empty")
-    private List<String> productId;
+    private String productId;
     
 }

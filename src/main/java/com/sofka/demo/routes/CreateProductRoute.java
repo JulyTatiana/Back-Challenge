@@ -3,6 +3,8 @@ package com.sofka.demo.routes;
 import com.sofka.demo.dtos.DTOproduct;
 import com.sofka.demo.useCases.CreateProductUseCase;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +20,8 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class CreateProductRoute {
 
     @Bean
-    @RouterOperation(operation = @Operation(description = "Create bill ", operationId = "createBill", tags = "Bills",
-            responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = BillsDTO.class)))))
+    @RouterOperation(operation = @Operation(description = "Create Product ", operationId = "createProduct", tags = "Products",
+            responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = DTOproduct.class)))))
     public RouterFunction<ServerResponse> newProduct(CreateProductUseCase createProductUseCase){
         return route(POST("/create/product").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(DTOproduct.class)

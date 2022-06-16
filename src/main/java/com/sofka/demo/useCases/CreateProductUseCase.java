@@ -4,10 +4,10 @@ import com.sofka.demo.dtos.DTOproduct;
 import com.sofka.demo.mappers.ProductMapper;
 import com.sofka.demo.repositories.IntProductRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
+//import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 
 @Service
 

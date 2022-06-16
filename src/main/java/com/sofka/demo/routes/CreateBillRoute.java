@@ -9,7 +9,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -22,14 +21,14 @@ public class CreateBillRoute {
 
     @Bean
     @RouterOperation(operation = @Operation(description = "Create bill ", operationId = "createBill", tags = "Bills", responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = DTObill.class)))))
-    public RouterFunction<ServerResponse> createOneBill(CreateBillUseCase createBillUseCase){
+    public RouterFunction<ServerResponse> createBill(CreateBillUseCase createBillUseCase){
         return route(POST("/create/bill").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(DTObill.class)
-                        .flatMap(dTObill -> createBillUseCase.createBill(dTObill))
-                        .flatMap(dTObill -> ServerResponse.status(HttpStatus.CREATED)
+                        .flatMap(billDTO -> createBillUseCase.createBill(billDTO))
+                        .flatMap(billDTO -> ServerResponse.ok()
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .bodyValue(dTObill))
-                        .onErrorResume(throwable -> ServerResponse.badRequest().build()));
+                                .bodyValue(billDTO))
+                        .onErrorResume(throwable -> ServerResponse.notFound().build()));
     }
 }
 

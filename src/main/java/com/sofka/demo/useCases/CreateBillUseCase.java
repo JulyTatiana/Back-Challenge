@@ -20,18 +20,17 @@ public class CreateBillUseCase {
         this.mapper = mapper;
     }
 
-    private boolean validateAttributes(DTObill dTObill){
-        return dTObill.getDate() != null &&
-                dTObill.getClient() != null &&
+    private boolean validateAttribute(DTObill dTObill){
+        return dTObill.getClient() != null &&
                 dTObill.getSeller() != null &&
                 dTObill.getTotalPaid() != null &&
                 dTObill.getProductId() != null;
     }
 
     private Mono<DTObill> validateBill(DTObill dTObill){
-        return Mono.just(dTObill)
-                .filter(billDTO1 -> this.validateAttributes(billDTO1))
-                .switchIfEmpty(Mono.error(()-> new Exception("There are missing attributes")));
+        return  Mono.just(dTObill)
+                .filter(billDTO1 -> this.validateAttribute(billDTO1))
+                .switchIfEmpty(Mono.error(() -> new Exception("Missing Attributes")));
     }
 
     public Mono<DTObill> createBill(DTObill dTObill){
